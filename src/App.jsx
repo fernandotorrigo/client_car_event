@@ -8,8 +8,11 @@ import LogOut from './views/LogOut'
 import NewContact from './views/NewContact'
 import VIP from './views/listContacts'
 import Home from './views/Home'
+import Schedule from './views/Schedule'
+
 
 class App extends React.Component {
+	
 	state = { currentUser: httpClient.getCurrentUser() }
 
 	onLoginSuccess(user) {
@@ -23,14 +26,16 @@ class App extends React.Component {
 	
 	render() {
 		const { currentUser } = this.state
-					
 		const isAdmin = localStorage.typeUser;
 
 		if(isAdmin==='true'){
 			return (
 				<div className='App container'>
+					
 					<NavBar currentUser={currentUser} />
 					<Switch>
+
+
 						<Route path="/login" render={(props) => {
 							return <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
 						}} />
@@ -48,9 +53,10 @@ class App extends React.Component {
 								? <VIP />
 								: <Redirect to="/login" />
 						}} />
-
+						<Route path="/schedule" render={() => {
+							return <Schedule />
+						}} />							
 						<Route path="/" component={Home} />
-
 					</Switch>
 				</div>
 			)
@@ -76,10 +82,13 @@ class App extends React.Component {
 								? <Redirect to="/" />
 								: <Redirect to="/login" />
 						}} />
-						
-						<Route path="/" component={Home} />
 
+						<Route path="/schedule" render={() => {
+							return <Schedule />
+						}} />						
+						<Route path="/" component={Home} />
 					</Switch>
+
 				</div>
 			)			
 		}

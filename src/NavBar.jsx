@@ -15,6 +15,7 @@ const NavBar = (props) => {
 		return (
 			<div className='NavBar'>
 				<Link to="/">Home|</Link>
+				<Link to="/schedule">Agenda|</Link>
 				{props.currentUser
 					? (
 						<span>
