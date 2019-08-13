@@ -35,6 +35,16 @@ httpClient.logIn = function(credentials) {
 		})
 }
 
+
+httpClient.newContact = function(contactInfo) {
+
+	this.defaults.headers.common = {'Authorization': `Bearer ${httpClient.getToken()}`}
+
+	return this({ method: 'post', url: '/api/contact', data: contactInfo})
+		.then((serverResponse) => {
+	})
+}
+
 httpClient.logOut = function() {
 	localStorage.removeItem('token')
 	delete this.defaults.headers.common.token

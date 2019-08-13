@@ -5,6 +5,7 @@ import httpClient from './httpClient'
 import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
+import NewContact from './views/NewContact'
 import VIP from './views/listContacts'
 import Home from './views/Home'
 
@@ -38,6 +39,10 @@ class App extends React.Component {
 							return <LogOut onLogOut={this.logOut.bind(this)} />
 						}} />
 
+						<Route path="/newContact" render={(props) => {
+							return <NewContact {...props} onNewContactSuccess={this.onLoginSuccess.bind(this)} />
+						}} />
+
 						<Route path="/listContacts" render={() => {
 							return currentUser
 								? <VIP />
@@ -62,6 +67,10 @@ class App extends React.Component {
 							return <LogOut onLogOut={this.logOut.bind(this)} />
 						}} />
 
+						<Route path="/newContact" render={(props) => {
+							return <NewContact {...props} onNewContactSuccess={this.onLoginSuccess.bind(this)} />
+						}} />
+						
 						<Route path="/listContacts" render={() => {
 							return currentUser
 								? <Redirect to="/" />
