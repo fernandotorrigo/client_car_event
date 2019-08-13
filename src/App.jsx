@@ -22,33 +22,58 @@ class App extends React.Component {
 	
 	render() {
 		const { currentUser } = this.state
-		return (
-			<div className='App container'>
-
-				<NavBar currentUser={currentUser} />
-
-				<Switch>
-
-					<Route path="/login" render={(props) => {
-						return <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
-					}} />
-
-					<Route path="/logout" render={(props) => {
-						return <LogOut onLogOut={this.logOut.bind(this)} />
-					}} />
-
 					
+		const isAdmin = localStorage.typeUser;
+
+		if(isAdmin==='true'){
+			return (
+				<div className='App container'>
+					<NavBar currentUser={currentUser} />
+					<Switch>
+						<Route path="/login" render={(props) => {
+							return <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
+						}} />
+
+						<Route path="/logout" render={(props) => {
+							return <LogOut onLogOut={this.logOut.bind(this)} />
+						}} />
+
 						<Route path="/listContacts" render={() => {
 							return currentUser
 								? <VIP />
 								: <Redirect to="/login" />
 						}} />
-						
-					<Route path="/" component={Home} />
 
-				</Switch>
-			</div>
-		)
+						<Route path="/" component={Home} />
+
+					</Switch>
+				</div>
+			)
+		}else{
+			return (
+				<div className='App container'>
+					<NavBar currentUser={currentUser} />
+					<Switch>
+						<Route path="/login" render={(props) => {
+							return <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
+						}} />
+
+						<Route path="/logout" render={(props) => {
+							return <LogOut onLogOut={this.logOut.bind(this)} />
+						}} />
+
+						<Route path="/listContacts" render={() => {
+							return currentUser
+								? <Redirect to="/" />
+								: <Redirect to="/login" />
+						}} />
+						
+						<Route path="/" component={Home} />
+
+					</Switch>
+				</div>
+			)			
+		}
 	}
 }
 
