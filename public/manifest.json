@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "car_event",
+  "name": "Create React Evento de carros",
   "icons": [
     {
       "src": "favicon.ico",

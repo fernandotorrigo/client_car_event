@@ -23,9 +23,9 @@ httpClient.logIn = function(credentials) {
 	return this({ method: 'post', url: '/api/signin', data: credentials })
 		.then((serverResponse) => {
 			const token = serverResponse.data.token
-			localStorage.setItem('typeUser', serverResponse.data.user.admin);//Set type user for show contacts
 
 			if(token) {
+				localStorage.setItem('typeUser', serverResponse.data.user.admin);//Set type user for show contacts
 				// sets token as an included header for all subsequent api requests
 				this.defaults.headers.common.token = this.setToken(token)
 				return jwtDecode(token)
