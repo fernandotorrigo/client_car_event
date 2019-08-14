@@ -6,3 +6,24 @@
 .NavBar {
 	margin-bottom: 20px
 }
+
+.aws-btn {
+
+	--slider-height-percentage: 31%;
+	--slider-transition-duration: 387ms;
+	--organic-arrow-thickness: 4px;
+	--organic-arrow-border-radius: 0px;
+	--organic-arrow-height: 40px;
+	--organic-arrow-color: #3f8577;
+	--control-button-width: 10%;
+	--control-button-height: 25%;
+	--control-button-background: transparent;
+	--control-bullet-color: #4a9c8c;
+	--control-bullet-active-color: #3f8577;
+	--loader-bar-color: #851515;
+	--loader-bar-height: 6px;
+	}
+
+.aws-sld {
+	width: 960px!important;
+}

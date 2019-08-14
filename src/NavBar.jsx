@@ -11,22 +11,21 @@ const NavBar = (props) => {
 		menuListContacts = '';
 	}
 
-	console.log()
 		return (
 			<div className='NavBar'>
-				<Link to="/">Home|</Link>
-				<Link to="/schedule">Agenda|</Link>
+				<Link to="/">| Home |</Link>
+				<Link to="/schedule"> Agenda |</Link>
 				{props.currentUser
 					? (
 						<span>
 							{menuListContacts}
-							<Link to="/newContact">Entrar em contato|</Link>
-							<Link to="/logout">Deslogar|</Link>
+							<Link to="/newContact"> Entrar em contato |</Link>
+							<Link to="/logout"> Deslogar |</Link>
 						</span>
 					)
 					: (
 						<span>
-							<Link to="/login">Login|</Link>
+							<Link to="/login"> Login |</Link>
 						</span>
 					)
 				}
